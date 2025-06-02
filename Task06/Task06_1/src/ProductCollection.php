@@ -13,6 +13,7 @@ class ProductCollection
 
     public function filter(ProductFilteringStrategy $filterStrategy): ProductCollection
     {
+<<<<<<< HEAD
         $filteredProducts = array();
         // ===================================
         //@TODO Добавить код для фильтрации товара из $this->products в $filteredProducts,
@@ -20,10 +21,21 @@ class ProductCollection
         // ===================================
 
         return new ProductCollection($filteredProducts);
+=======
+        $filteredProducts = array_filter($this->products, function ($product) use ($filterStrategy) {
+            return $filterStrategy->filter($product);
+        });
+
+        return new ProductCollection(array_values($filteredProducts));
+>>>>>>> student/task06
     }
 
     public function getProductsArray()
     {
         return $this->products;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> student/task06
